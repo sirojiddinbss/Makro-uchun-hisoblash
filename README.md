@@ -1,0 +1,2 @@
+# Makro uchun hisoblash 
+ 
