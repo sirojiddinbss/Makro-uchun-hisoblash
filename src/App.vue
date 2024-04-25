@@ -2,7 +2,7 @@
   <main>
     <el-form ref="attachForm" :model="products" label-position="top">
       <div class="buy_product">
-        <el-form-item class="buy__product_item">
+        <el-form-item class="buy__product_item" v-motion-slide-bottom>
           <div class="product" @click="save_product('cola15'), buy_all()">
             <el-icon v-if="!products.cola15" class="el_icon"><Sell /></el-icon>
             <el-icon v-if="products.cola15" class="el_icon"><Plus /></el-icon>
@@ -16,7 +16,7 @@
           </el-text>
         </el-form-item>
 
-        <el-form-item class="buy__product_item">
+        <el-form-item class="buy__product_item" v-motion-slide-bottom>
           <div class="product" @click="save_product('cola1'), buy_all()">
             <el-icon v-if="!products.cola1" class="el_icon"><Sell /></el-icon>
             <el-icon v-if="products.cola1" class="el_icon"><Plus /></el-icon>
@@ -30,7 +30,7 @@
           </el-text>
         </el-form-item>
 
-        <el-form-item class="buy__product_item">
+        <el-form-item class="buy__product_item" v-motion-slide-bottom>
           <div class="product" @click="save_product('cola05'), buy_all()">
             <el-icon v-if="!products.cola05" class="el_icon"><Sell /></el-icon>
             <el-icon v-if="products.cola05" class="el_icon"><Plus /></el-icon>
@@ -44,7 +44,7 @@
           </el-text>
         </el-form-item>
 
-        <el-form-item class="buy__product_item">
+        <el-form-item class="buy__product_item" v-motion-slide-bottom>
           <div class="product" @click="save_product('banana'), buy_all()">
             <el-icon v-if="!products.banana" class="el_icon"><Sell /></el-icon>
             <el-icon v-if="products.banana" class="el_icon"><Plus /></el-icon>
@@ -58,7 +58,7 @@
           </el-text>
         </el-form-item>
 
-        <el-form-item class="buy__product_item">
+        <el-form-item class="buy__product_item" v-motion-slide-bottom>
           <div class="product" @click="save_product('apple'), buy_all()">
             <el-icon v-if="!products.apple" class="el_icon"><Sell /></el-icon>
             <el-icon v-if="products.apple" class="el_icon"><Plus /></el-icon>
@@ -72,7 +72,7 @@
           </el-text>
         </el-form-item>
 
-        <el-form-item class="buy__product_item">
+        <el-form-item class="buy__product_item" v-motion-slide-bottom>
           <div class="product" @click="save_product('juice'), buy_all()">
             <el-icon v-if="!products.juice" class="el_icon"><Sell /></el-icon>
             <el-icon v-if="products.juice" class="el_icon"><Plus /></el-icon>
@@ -89,48 +89,82 @@
 
       <div class="aside_" v-if="all">
         <div class="aside_big_item">
-          <div class="aside_item" v-if="products.cola15">
+          <div class="aside_item" v-if="products.cola15" div v-motion-slide-left>
             <img width="120" src="@/img/cola.png" alt="1L cola image" />
-            <el-input-number controls-position="right" @change="buy_all" v-model="products.cola15" :min="0" :max="50" />
-            <p>Cola 1.5L </p>
+            <el-input-number
+              controls-position="right"
+              @change="buy_all"
+              v-model="products.cola15"
+              :min="0"
+              :max="50"
+            />
+            <p>Cola 1.5L</p>
           </div>
-          
-          <div class="aside_item" v-if="products.cola1">
+
+          <div class="aside_item" v-if="products.cola1" v-motion-slide-bottom>
             <img width="120" src="@/img/coca-cola-1.png" alt="1L cola image" />
-            <el-input-number controls-position="right" @change="buy_all" v-model="products.cola1" :min="0" :max="50" />
-            <p>Cola 1L </p>
+            <el-input-number
+              controls-position="right"
+              @change="buy_all"
+              v-model="products.cola1"
+              :min="0"
+              :max="50"
+            />
+            <p>Cola 1L</p>
           </div>
 
-          <div class="aside_item" v-if="products.cola05">
+          <div class="aside_item" v-if="products.cola05" v-motion-slide-bottom>
             <img width="120" src="@/img/yarim_cola.png" alt="0.5L cola image" />
-            <el-input-number controls-position="right" @change="buy_all" v-model="products.cola05" :min="0" :max="50" />
-            <p>Cola 0.5L </p>
+            <el-input-number
+              controls-position="right"
+              @change="buy_all"
+              v-model="products.cola05"
+              :min="0"
+              :max="50"
+            />
+            <p>Cola 0.5L</p>
           </div>
 
-          <div class="aside_item" v-if="products.banana">
+          <div class="aside_item" v-if="products.banana" v-motion-slide-bottom>
             <img width="120" src="@/img/banana.png" alt="banana image" />
-            <el-input-number controls-position="right" @change="buy_all" v-model="products.banana" :min="0" :max="50" />
+            <el-input-number
+              controls-position="right"
+              @change="buy_all"
+              v-model="products.banana"
+              :min="0"
+              :max="50"
+            />
             <p>Banan</p>
           </div>
 
-          <div class="aside_item" v-if="products.apple">
+          <div class="aside_item" v-if="products.apple" v-motion-slide-bottom>
             <img width="120" src="@/img/apples.png" alt="apple image" />
-            <el-input-number controls-position="right" @change="buy_all" v-model="products.apple" :min="0" :max="50" />
+            <el-input-number
+              controls-position="right"
+              @change="buy_all"
+              v-model="products.apple"
+              :min="0"
+              :max="50"
+            />
             <p>Banan</p>
           </div>
 
-          <div class="aside_item" v-if="products.juice">
+          <div class="aside_item" v-if="products.juice" v-motion-slide-visible-right>
             <img width="120" src="@/img/juice.png" alt="juice image" />
-            <el-input-number controls-position="right" @change="buy_all" v-model="products.juice" :min="0" :max="50" />
+            <el-input-number
+              controls-position="right"
+              @change="buy_all"
+              v-model="products.juice"
+              :min="0"
+              :max="50"
+            />
             <p>Dena behili sok</p>
           </div>
         </div>
 
         <div class="d-flex">
           <p><el-text tag="b">Jami:</el-text> {{ all }} so'm</p>
-          <el-button plain type="success" @click="dialogVisible = true">
-            Chek chiqarish
-          </el-button>
+          <el-button plain type="success" @click="dialogVisible = true"> Chek chiqarish </el-button>
 
           <el-dialog
             v-model="dialogVisible"
@@ -142,16 +176,41 @@
               <div class="dialog-footer">
                 <div>
                   <el-table :data="tableData" style="width: 100%">
-                    <el-table-column v-if="products.cola05" prop="cola05" label="Coca Cola 0.5L" max-width="180" />
-                    <el-table-column v-if="products.cola1" prop="cola1" label="Coca Cola 1L" max-width="180" />
+                    <el-table-column
+                      v-if="products.cola05"
+                      prop="cola05"
+                      label="Coca Cola 0.5L"
+                      max-width="180"
+                    />
+                    <el-table-column
+                      v-if="products.cola1"
+                      prop="cola1"
+                      label="Coca Cola 1L"
+                      max-width="180"
+                    />
                     <el-table-column v-if="products.cola15" prop="cola15" label="Coca Cola 1.5L" />
-                    <el-table-column v-if="products.banana" prop="banana" label="Banan" max-width="180" />
-                    <el-table-column v-if="products.apple" prop="apple" label="Olma" maxwidth="180" />
-                    <el-table-column v-if="products.juice" prop="juice" label="Sharbat" max-width="180"/>
-                  </el-table><br>
-                  <p><el-text tag="b">Jami:</el-text> {{all}} so'm</p>
-                  
-                </div> <br>
+                    <el-table-column
+                      v-if="products.banana"
+                      prop="banana"
+                      label="Banan"
+                      max-width="180"
+                    />
+                    <el-table-column
+                      v-if="products.apple"
+                      prop="apple"
+                      label="Olma"
+                      maxwidth="180"
+                    />
+                    <el-table-column
+                      v-if="products.juice"
+                      prop="juice"
+                      label="Sharbat"
+                      max-width="180"
+                    /> </el-table
+                  ><br />
+                  <p><el-text tag="b">Jami:</el-text> {{ all }} so'm</p>
+                </div>
+                <br />
                 <el-button @click="dialogVisible = false">Yopish</el-button>
                 <el-button type="primary" @click="dialogVisible = false">
                   Chekni chiqarish
@@ -160,7 +219,8 @@
             </template>
           </el-dialog>
         </div>
-      </div><br>
+      </div>
+      <br />
     </el-form>
   </main>
 </template>
@@ -195,38 +255,47 @@ const save_product = (product) => {
     products.value.juice++
   }
   tableData.value = [
-  {
-    cola05: products.value.cola05 + " dona",
-    cola1: products.value.cola1 + ' dona',
-    cola15: products.value.cola15 + " dona",
-    banana: products.value.banana + " dona",
-    apple: products.value.apple + " kg",
-    juice: products.value.juice + " dona",
-  },
-  
-]
+    {
+      cola05: products.value.cola05 + ' dona',
+      cola1: products.value.cola1 + ' dona',
+      cola15: products.value.cola15 + ' dona',
+      banana: products.value.banana + ' dona',
+      apple: products.value.apple + ' kg',
+      juice: products.value.juice + ' dona'
+    }
+  ]
 }
 
-const buy_all =()=>{
-
-  if(products.value.cola05 ==0 && products.value.cola1 ==0 && products.value.cola15 ==0 && products.value.banana ==0 && products.value.apple ==0 && products.value.juice ==0 ){
+const buy_all = () => {
+  if (
+    products.value.cola05 == 0 &&
+    products.value.cola1 == 0 &&
+    products.value.cola15 == 0 &&
+    products.value.banana == 0 &&
+    products.value.apple == 0 &&
+    products.value.juice == 0
+  ) {
     all.value = 0
-  }
-  else{
-    all.value = 7000*products.value.cola05 + 9000*products.value.cola1 + 12000*products.value.cola15 + 21000*products.value.banana + 23000*products.value.apple + 13000*products.value.juice
+  } else {
+    all.value =
+      7000 * products.value.cola05 +
+      9000 * products.value.cola1 +
+      12000 * products.value.cola15 +
+      21000 * products.value.banana +
+      23000 * products.value.apple +
+      13000 * products.value.juice
   }
 }
 
-onMounted(()=>{
+onMounted(() => {
   buy_all()
 })
 
 const dialogVisible = ref(false)
-
 </script>
 
 <style>
-.d-flex{
+.d-flex {
   margin: 20px;
   display: flex;
   flex-direction: column;
@@ -235,21 +304,23 @@ const dialogVisible = ref(false)
   gap: 20px;
 }
 
-.aside_{
+.aside_ {
   display: flex;
   background-color: azure;
   padding: 10px;
   gap: 5px;
   justify-content: space-between;
 }
-.aside_big_item{
+.aside_big_item {
   display: flex;
   background-color: azure;
   padding: 10px;
   gap: 5px;
 }
-.aside_item{
-  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+.aside_item {
+  box-shadow:
+    rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
   border-radius: 5px;
   padding: 10px;
   text-align: center;
@@ -281,18 +352,20 @@ const dialogVisible = ref(false)
 .el-form-item__content {
   flex-direction: column;
 }
-.buy__product_item{
+.buy__product_item {
   margin-top: 20px;
   max-height: 300px;
   background-color: azure;
   padding: 20px;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  box-shadow:
+    rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
   border-radius: 5px 0;
 }
 
-.el-text{
+.el-text {
   font-weight: bold;
   text-align: center;
 }
-
 </style>
